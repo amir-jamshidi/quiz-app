@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'dana';
+        src: url('./assets/fonts/dana-regular.ttf');
+    }
+
+    @font-face {
+        font-family: 'dana-bold';
+        src: url('./assets/fonts/dana-demi-bold.ttf');
+    }
+    @font-face {
+        font-family: 'dana-medium';
+        src: url('./assets/fonts/dana-medium.ttf');
+    }
+    @font-face {
+        font-family: 'mo-bold';
+        src: url('./assets/fonts/mo-bold.woff');
+    }
+    @font-face {
+        font-family: 'mo-light';
+        src: url('./assets/fonts/mo-medium.woff');
+    }
+    @font-face {
+        font-family: 'mo-medium';
+        src: url('./assets/fonts/mo-light.woff');
+    }
+
+    body {
+        font-family: 'dana' !important
+    }
+}

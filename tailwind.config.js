@@ -6,6 +6,14 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      'dana': 'dana',
+      'dana-bold': 'dana-bold',
+      'dana-medium': 'dana-medium',
+      'morabba-bold': 'mo-bold',
+      'morabba-medium': 'mo-medium',
+      'morabba-light': 'mo-light'
+    }
   },
   plugins: [],
 }
