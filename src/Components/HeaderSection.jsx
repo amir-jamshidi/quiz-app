@@ -1,4 +1,4 @@
-const Header = () => {
+const HeaderSection = () => {
   return (
     <header className="w-full h-16 bg-gray-900 rounded-b-2xl">
       <div className="h-full w-full flex flex-row">
@@ -16,4 +16,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderSection;
