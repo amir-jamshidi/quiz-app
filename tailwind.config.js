@@ -13,7 +13,14 @@ export default {
       'morabba-bold': 'mo-bold',
       'morabba-medium': 'mo-medium',
       'morabba-light': 'mo-light'
+    },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem'
+      }
     }
+
   },
   plugins: [],
 }
