@@ -15,16 +15,16 @@ const QuizSectionEnd = ({
         <span className="w-5 h-2 inline-block bg-green-500 rounded"></span>
       </div>
       <div className="mt-8 space-y-2">
-        <p className="text-white font-dana-bold text-xl bg-violet-600 py-4 rounded px-8">
+        <p className="text-white font-dana-bold text-lg md:text-xl bg-violet-600 py-4 rounded px-8">
           تعداد کوئیز ها :
           <span className="bg-violet-800 px-2 rounded mr-1">{quizCount}</span>
         </p>
-        <p className="text-white font-dana-bold text-xl bg-green-600 py-4 rounded px-8">
+        <p className="text-white font-dana-bold text-lg md:text-xl bg-green-600 py-4 rounded px-8">
           پاسخ های صحیح :
           <span className="bg-green-800 px-2 rounded mr-1">{trueCount}</span>
           <span className="mr-1">{quizCount === trueCount && "💪"}</span>
         </p>
-        <p className="text-white font-dana-bold text-xl bg-red-600 py-4 rounded px-8">
+        <p className="text-white font-dana-bold text-lg md:text-xl bg-red-600 py-4 rounded px-8">
           پاسخ های غلط :
           <span className="bg-red-800 px-2 rounded mr-1">{falseCount}</span>
         </p>
@@ -38,10 +38,10 @@ const QuizSectionEnd = ({
                   key={result.uid}
                   className="flex gap-x-2 items-center px-2"
                 >
-                  <span className="w-4 h-4 inline-block bg-red-500 rounded-full"></span>
+                  <span className="w-2 h-2 md:w-4 md:h-4  shrink-0 inline-block bg-red-500 rounded-full"></span>
                   <p className="font-dana-bold text-white">
                     سوال :<span className="mr-1">{result.title}</span>
-                    <span className="bg-green-500 px-3 rounded mx-1 text-sm font-dana-medium">
+                    <span className="bg-green-500 inline-block md:inline px-3 rounded mx-1 text-sm font-dana-medium">
                       پاسخ صحیح : {result.options[result.answer - 1].body}
                     </span>
                   </p>

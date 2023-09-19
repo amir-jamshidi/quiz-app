@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import FooterSection from "./Components/FooterSection";
+import Footer from "./Components/FooterSection";
 import HeaderSection from "./Components/HeaderSection";
 import QuizSection from "./Components/QuizSection";
 import QuizSectionEnd from "./Components/QuizSectionEnd";
@@ -66,6 +68,7 @@ const App = () => {
           </>
         )}
       </div>
+        <FooterSection/>
     </div>
   );
 };
