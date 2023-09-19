@@ -1,11 +1,16 @@
 import { useState } from "react";
 import QuizBody from "./QuizBody";
-const QuizSection = ({ quizes, showFinalResult }) => {
+const QuizSection = ({
+  quizes,
+  showFinalResult,
+  setFalseAnswerResult,
+  setTrueCount,
+  setFalseCount,
+  resetApp,
+}) => {
   const [currentQuiz, setCurrentQuiz] = useState(0);
   const [selected, setSelected] = useState(0);
   const [answer, setAnswer] = useState(false);
-  const [trueCount, setTrueCount] = useState(0);
-  const [falseCount, setFalseCount] = useState(0);
 
   const checkAnswer = (key, currentQuiz) => {
     setSelected(key);
@@ -21,6 +26,7 @@ const QuizSection = ({ quizes, showFinalResult }) => {
       setTrueCount((prev) => prev + 1);
     } else {
       setFalseCount((prev) => prev + 1);
+      setFalseAnswerResult((prev) => [...prev, quizes[currentQuiz]]);
     }
 
     setCurrentQuiz((prev) => prev + 1);
@@ -29,24 +35,41 @@ const QuizSection = ({ quizes, showFinalResult }) => {
 
   const showResult = () => {
     if (answer) {
-      showFinalResult(trueCount + 1, falseCount);
+      setTrueCount((prev) => prev + 1);
     } else {
-      showFinalResult(trueCount, falseCount + 1);
+      setFalseCount((prev) => prev + 1);
+      setFalseAnswerResult((prev) => [...prev, quizes[currentQuiz]]);
     }
+
+    showFinalResult();
   };
 
   return (
     <div className="mt-12 mx-24 bg-gray-900 rounded-2xl p-8">
-      <div className="gap-x-2 flex items-center justify-center border-b pb-5 border-b-white/10">
-        <span className="w-5 h-2 inline-block bg-green-500 rounded"></span>
-        <h1 className="font-morabba-bold text-2xl text-center text-white inline">
+      <div className="flex flex-row items-center border-b pb-5 border-b-white/10">
+        <div className="flex-1"></div>
+        <div className="flex-1 gap-x-2 flex items-center justify-center ">
+          <span className="w-5 h-2 inline-block bg-green-500 rounded"></span>
+          <h1 className="font-morabba-bold text-2xl text-center text-white inline">
             سوال
-            <span className="font-dana-bold mx-1">{currentQuiz+1}</span>
+            <span className="font-dana-bold mx-1">{currentQuiz + 1}</span>
             از
             <span className="font-dana-bold mr-1">{quizes.length}</span>
-        </h1>
-        <span className="w-5 h-2 inline-block bg-green-500 rounded"></span>
+          </h1>
+          <span className="w-5 h-2 inline-block bg-green-500 rounded"></span>
+        </div>
+        <div className="flex-1 flex justify-end">
+          <div className="cursor-pointer" onClick={resetApp}>
+            <span
+              className="text-red-500 text-lg font-morabba-medium px-3 py-1 border border-red-500 rounded
+                            hover:bg-red-500 hover:text-white transition-colors"
+            >
+              لغو کوئیز
+            </span>
+          </div>
+        </div>
       </div>
+
       {quizes && (
         <div className="mt-8">
           <QuizBody

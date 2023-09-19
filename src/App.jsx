@@ -8,6 +8,9 @@ const App = () => {
   const [startPage, setStartPage] = useState(true);
   const [quiz, setQuiz] = useState([]);
   const [endPage, setEndPage] = useState(false);
+  const [trueCount, setTrueCount] = useState(0);
+  const [falseCount, setFalseCount] = useState(0);
+  const [falseAnswerResult, setFalseAnswerResult] = useState([]);
 
   useEffect(() => {
     getQuiz();
@@ -19,23 +22,46 @@ const App = () => {
     setQuiz(result);
   };
 
-  const showFinalResult = (trueCount, falseCount) => {
-    console.log(trueCount, falseCount);
+  const showFinalResult = () => {
     setEndPage(true);
+  };
+
+  const resetApp = () => {
+    setStartPage(true);
+    setEndPage(false);
+    setTrueCount(0);
+    setFalseCount(0);
+    setFalseAnswerResult([]);
   };
 
   return (
     <div className="w-full min-h-screen bg-gray-800">
       <div className="container">
-        <HeaderSection  />
+        <HeaderSection />
         {endPage ? (
-          <QuizSectionEnd />
+          <QuizSectionEnd
+            quizCount={quiz.length}
+            trueCount={trueCount}
+            falseCount={falseCount}
+            resetApp={resetApp}
+            falseAnswerResult={falseAnswerResult}
+          />
         ) : (
           <>
             {startPage ? (
-              <QuizSectionStart quizCount={quiz.length} setStartPage={setStartPage} />
+              <QuizSectionStart
+                quizCount={quiz.length}
+                setStartPage={setStartPage}
+              />
             ) : (
-              <QuizSection quizes={quiz} showFinalResult={showFinalResult} />
+              <QuizSection
+                quizes={quiz}
+                resetApp={resetApp}
+                showFinalResult={showFinalResult}
+                setFalseAnswerResult={setFalseAnswerResult}
+                setTrueCount={setTrueCount}
+                setFalseCount={setFalseCount}
+              />
             )}
           </>
         )}
