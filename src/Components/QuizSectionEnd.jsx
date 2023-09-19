@@ -6,7 +6,7 @@ const QuizSectionEnd = ({
   falseAnswerResult,
 }) => {
   return (
-    <div className="mt-12 mx-24 bg-gray-900 rounded-2xl p-8">
+    <div className="mt-12 md:mx-24 bg-gray-900 rounded-2xl p-8">
       <div className="text-white border-b border-b-white/10 pb-5 flex items-center justify-center gap-x-2">
         <span className="w-5 h-2 inline-block bg-green-500 rounded"></span>
         <h1 className="font-morabba-bold text-center text-2xl ">
@@ -41,7 +41,7 @@ const QuizSectionEnd = ({
                   <span className="w-4 h-4 inline-block bg-red-500 rounded-full"></span>
                   <p className="font-dana-bold text-white">
                     سوال :<span className="mr-1">{result.title}</span>
-                    <span className="bg-green-500 px-3 rounded mx-1">
+                    <span className="bg-green-500 px-3 rounded mx-1 text-sm font-dana-medium">
                       پاسخ صحیح : {result.options[result.answer - 1].body}
                     </span>
                   </p>

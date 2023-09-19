@@ -2,7 +2,7 @@ import Hint from "./Hint";
 
 const QuizSectionStart = ({ setStartPage, quizCount }) => {
   return (
-    <div className="mt-12 mx-24 bg-gray-900 rounded-2xl p-8">
+    <div className="mt-12 md:mx-24 bg-gray-900 rounded-2xl p-8">
       <div className="flex w-full flex-col justify-center">
         <div className="border-b border-b-white/10 pb-6">
           <h3 className="font-morabba-medium text-white text-center text-2xl">
